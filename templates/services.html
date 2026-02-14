@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block content %}
+<div class="services-page">
+  <nav class="navbar">
+    <div class="logo-small">
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="Homy Logo"
+        class="logo-small-image"
+      />
+      HOMY
+    </div>
+    <div class="nav-links">
+      <a href="#why-homy">Why Homy</a>
+      <a href="#services">Services</a>
+      <a href="/auth">Login</a>
+    </div>
+  </nav>
+
+  <div class="why-homy-section" id="why-homy">
+    <h1>Why Choose Homy?</h1>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fas fa-clock"></i>
+        <h3>Quick Service</h3>
+        <p>Book services in under 2 minutes with instant confirmation</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Verified Professionals</h3>
+        <p>All service providers are background-verified and skilled</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-dollar-sign"></i>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden charges. Know the exact price before booking</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-star"></i>
+        <h3>Quality Guarantee</h3>
+        <p>100% satisfaction guaranteed or we'll make it right</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-section" id="services">
+    <h2>Our Services</h2>
+    <div class="search-bar">
+      <input
+        type="text"
+        id="serviceSearch"
+        placeholder="Search for services..."
+      />
+      <button onclick="searchServices()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+      <!-- Services will be loaded dynamically -->
+    </div>
+
+    <button class="auth-btn" onclick="window.location.href = '/auth'">
+      Get Started <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+{% endblock %}

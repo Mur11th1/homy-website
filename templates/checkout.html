@@ -1,0 +1,169 @@
+{% extends "layout.html" %} {% block content %}
+<div class="checkout-page">
+  <nav class="navbar">
+    <div class="logo-small">
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="Homy Logo"
+        class="logo-small-image"
+      />
+      HOMY
+    </div>
+    <div class="user-menu">
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </nav>
+
+  <div class="checkout-container">
+    <div class="checkout-grid">
+      <!-- Services List -->
+      <div class="services-list-section">
+        <h2>Available Services</h2>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="checkoutSearch"
+            placeholder="Search services..."
+          />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <!-- Add this after the search bar in services-list-section -->
+        <div
+          style="
+            margin: 10px 0;
+            padding: 10px;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+          "
+        >
+          <p style="margin: 0; color: #856404">
+            <i class="fas fa-exclamation-triangle"></i>
+            Services not loading?
+            <button
+              onclick="fixServicesTable()"
+              style="
+                background: #856404;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 3px;
+                cursor: pointer;
+                margin-left: 10px;
+              "
+            >
+              Fix Services Table
+            </button>
+          </p>
+        </div>
+
+        <div class="services-categories" id="servicesCategories">
+          <!-- Categories will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Booking Details -->
+      <div class="booking-section">
+        <h2>Booking Details</h2>
+        <div class="booking-form">
+          <div class="form-group">
+            <label for="serviceSelect">Select Service</label>
+            <select id="serviceSelect">
+              <option value="">Choose a service</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDate">Preferred Date & Time</label>
+            <input type="datetime-local" id="serviceDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="address">Service Address</label>
+            <textarea
+              id="address"
+              rows="3"
+              placeholder="Enter your complete address"
+            ></textarea>
+          </div>
+
+          <!-- Find this section in checkout.html and replace -->
+          <div class="price-summary">
+            <h3>Price Summary</h3>
+            <div class="price-item">
+              <span>Service Fee</span>
+              <span id="serviceFee">KES 0</span>
+              <!-- Changed from $0 -->
+            </div>
+            <div class="price-item">
+              <span>Convenience Fee</span>
+              <span id="convenienceFee">KES 300</span>
+              <!-- Changed from $2.99 -->
+            </div>
+            <div class="price-total">
+              <span>Total</span>
+              <span id="totalPrice">KES 0</span>
+              <!-- Changed from $0 -->
+            </div>
+          </div>
+
+          <button class="book-btn" onclick="processBooking()">
+            Book Now & Pay <i class="fas fa-lock"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Payment Section -->
+      <div class="payment-section">
+        <h2>Payment</h2>
+        <div class="payment-options">
+          <div class="payment-method active" onclick="selectPayment('card')">
+            <i class="fas fa-credit-card"></i>
+            <span>Credit/Debit Card</span>
+          </div>
+          <div class="payment-method" onclick="selectPayment('paypal')">
+            <i class="fab fa-paypal"></i>
+            <span>PayPal</span>
+          </div>
+          <div class="payment-method" onclick="selectPayment('googlepay')">
+            <i class="fab fa-google-pay"></i>
+            <span>Google Pay</span>
+          </div>
+        </div>
+
+        <div class="card-details" id="cardDetails">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input
+              type="text"
+              id="cardNumber"
+              placeholder="1234 5678 9012 3456"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiryDate">Expiry Date</label>
+              <input type="text" id="expiryDate" placeholder="MM/YY" />
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cardName">Name on Card</label>
+            <input type="text" id="cardName" placeholder="John Doe" />
+          </div>
+        </div>
+
+        <div class="confirmation">
+          <label class="checkbox">
+            <input type="checkbox" id="termsAgree" />
+            <span>I agree to the Terms & Conditions</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

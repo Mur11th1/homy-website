@@ -1,0 +1,106 @@
+{% extends "layout.html" %} {% block content %}
+<div class="auth-page">
+  <div class="auth-container">
+    <div class="auth-header">
+      <div class="logo-small">
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Homy Logo"
+          class="logo-small-image"
+        />
+        HOMY
+      </div>
+      <h2>Welcome Back</h2>
+      <p>Sign in to book services</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+      <button class="tab-btn" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <div class="auth-forms">
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit" class="auth-submit-btn">Sign In</button>
+        <p class="auth-switch">
+          Don't have an account?
+          <a href="#" onclick="switchTab('register')">Sign up</a>
+        </p>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label for="registerName">Full Name</label>
+          <input
+            type="text"
+            id="registerName"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input
+            type="email"
+            id="registerEmail"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerPhone">Phone Number</label>
+          <input
+            type="tel"
+            id="registerPhone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Create a password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerConfirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="registerConfirmPassword"
+            placeholder="Confirm your password"
+            required
+          />
+        </div>
+        <button type="submit" class="auth-submit-btn">Create Account</button>
+        <p class="auth-switch">
+          Already have an account?
+          <a href="#" onclick="switchTab('login')">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,946 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==================== LOGO PAGE STYLES ==================== */
+.logo-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.logo-container {
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Logo image styling */
+.logo img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    display: block;
+    margin: 0 auto;
+}
+
+/* Logo text styling */
+.logo-text {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    margin-top: 20px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    color: white;
+    margin: 30px 0;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.enter-btn {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.enter-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: #f8f9fa;
+}
+
+.enter-btn:active {
+    transform: translateY(-2px);
+}
+
+/* Logo Animation on Page Load */
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.logo {
+    animation: logoEntrance 1s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add pulse to logo image */
+.logo img {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Logo Hover Effects */
+.logo:hover img {
+    animation: none; /* Stop pulse on hover */
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) brightness(1.1);
+}
+
+.logo:hover .logo-text {
+    transform: scale(1.05);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+/* ==================== SERVICES PAGE ==================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo-small {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Small Logo for Navbar */
+.logo-small-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #667eea;
+}
+
+/* ==================== SERVICES CONTENT ==================== */
+.why-homy-section {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.why-homy-section h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    background: #f8f9ff;
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-card i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Services Section */
+.services-section {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    display: flex;
+    margin: 30px 0;
+    max-width: 600px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.service-card {
+    background: #f8f9ff;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.service-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #667eea;
+    margin: 10px 0;
+}
+
+.service-rating {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.auth-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 0;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+/* ==================== AUTH PAGE ==================== */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-container {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #667eea;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #667eea;
+}
+
+.auth-forms {
+    position: relative;
+}
+
+.auth-form {
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.auth-submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-submit-btn:hover {
+    background: #5a6fd8;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.auth-switch a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ==================== CHECKOUT PAGE ==================== */
+.checkout-page {
+    background: #f5f7ff;
+    min-height: 100vh;
+}
+
+.user-menu {
+    font-size: 2rem;
+    color: #667eea;
+    cursor: pointer;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.services-list-section,
+.booking-section,
+.payment-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.services-categories {
+    margin-top: 20px;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+/* Service Item Styles */
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 5px 0;
+    background: #f8f9ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.service-item:hover {
+    background: #eef1ff;
+    transform: translateX(5px);
+}
+
+.service-item.selected {
+    background: #e6f7ff;
+    border-left-color: #1890ff;
+}
+
+.service-info {
+    flex: 1;
+}
+
+.service-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.service-price {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.service-rating {
+    color: #ffd700;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.rating-text {
+    color: #666;
+    margin-left: 5px;
+}
+
+.booking-form {
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.price-summary {
+    background: #f8f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.price-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.book-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.payment-options {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.payment-method {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.payment-method.active {
+    border-color: #667eea;
+    background: #eef1ff;
+}
+
+.payment-method i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #667eea;
+}
+
+.card-details {
+    margin-top: 20px;
+}
+
+.confirmation {
+    margin-top: 30px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+/* Loading and Empty States */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    animation: spin 1s linear infinite;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background: #5a6fd8;
+}
+
+/* Fix notice styles */
+#fixServicesNotice {
+    margin: 10px 0;
+    padding: 10px;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 5px;
+}
+
+#fixServicesNotice p {
+    margin: 0;
+    color: #856404;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#fixServicesNotice button {
+    background: #856404;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#fixServicesNotice button:hover {
+    background: #a07c1a;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1200px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Logo responsive */
+    .logo img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .logo-text {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+    
+    .tagline {
+        font-size: 1.5rem;
+    }
+    
+    .enter-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    
+    /* Logo small */
+    .logo-small-image {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Services responsive */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    /* Checkout responsive */
+    .checkout-grid {
+        gap: 20px;
+    }
+    
+    .services-list-section,
+    .booking-section,
+    .payment-section {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .payment-options {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .logo-text {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .tagline {
+        font-size: 1.3rem;
+    }
+    
+    .enter-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .why-homy-section,
+    .services-section,
+    .auth-container {
+        padding: 25px;
+    }
+    /* KES Currency Styling */
+.price-kes {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.price-kes::before {
+    content: 'KES ';
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Price display in service cards */
+.service-price {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.service-price::before {
+    content: 'KES ';
+    font-weight: normal;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Price in checkout summary */
+.price-item span:last-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.price-item span:last-child::before {
+    content: 'KES ';
+    font-weight: normal;
+    color: #666;
+}
+
+/* Total price styling */
+.price-total span:last-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.price-total span:last-child::before {
+    content: 'KES ';
+    font-weight: normal;
+    font-size: 1rem;
+    color: #666;
+}
+}
